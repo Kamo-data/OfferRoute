@@ -1,16 +1,7 @@
 import { useMemo, useState } from "react";
 import jobsData from "../data/jobs.json";
-
-type Job = {
-  id: number;
-  title: string;
-  company: string;
-  location: string;
-  contractType: string;
-  remoteType: string;
-  publishedAt: string;
-  description: string;
-};
+import { addTrackedJob } from "../lib/trackerStorage";
+import type { Job } from "../lib/trackerStorage";
 
 export default function Search() {
   const jobs = jobsData as Job[];
@@ -18,6 +9,7 @@ export default function Search() {
   const [keyword, setKeyword] = useState("");
   const [location, setLocation] = useState("");
   const [contractType, setContractType] = useState("");
+  const [feedback, setFeedback] = useState("");
 
   const filteredJobs = useMemo(() => {
     return jobs.filter((job) => {
@@ -38,10 +30,34 @@ export default function Search() {
     });
   }, [jobs, keyword, location, contractType]);
 
+  function handleAddToTracker(job: Job) {
+    const result = addTrackedJob(job);
+    setFeedback(result.message);
+
+    window.setTimeout(() => {
+      setFeedback("");
+    }, 2500);
+  }
+
   return (
     <div>
       <h1>Recherche</h1>
       <p>Filtre les offres de démonstration ci-dessous.</p>
+
+      {feedback && (
+        <div
+          style={{
+            marginTop: "16px",
+            marginBottom: "16px",
+            padding: "12px 14px",
+            borderRadius: "10px",
+            background: "#1e293b",
+            border: "1px solid #334155",
+          }}
+        >
+          {feedback}
+        </div>
+      )}
 
       <div
         style={{
@@ -147,6 +163,22 @@ export default function Search() {
             </p>
 
             <p style={{ marginTop: "12px", opacity: 0.9 }}>{job.description}</p>
+
+            <button
+              onClick={() => handleAddToTracker(job)}
+              style={{
+                marginTop: "14px",
+                padding: "10px 14px",
+                borderRadius: "10px",
+                border: "none",
+                background: "#2563eb",
+                color: "white",
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
+              Ajouter au suivi
+            </button>
           </div>
         ))}
 
