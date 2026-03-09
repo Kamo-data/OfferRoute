@@ -1,8 +1,8 @@
 export default function Search() {
   return (
-    <div style={{ padding: 24 }}>
-      <h2>Recherche d'offres</h2>
-      <p>Ici on affichera les résultats (France Travail + autres sources) et les filtres.</p>
+    <div>
+      <h1>Recherche</h1>
+      <p>Cette page affichera les offres importées et filtrées.</p>
     </div>
   );
 }

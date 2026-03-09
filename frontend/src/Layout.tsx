@@ -1,11 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-const linkStyle = ({ isActive }: { isActive: boolean }) => ({
-  padding: "8px 12px",
-  borderRadius: 8,
-  textDecoration: "none",
+const getLinkStyle = ({ isActive }: { isActive: boolean }) => ({
   color: "white",
-  background: isActive ? "#334155" : "transparent",
+  textDecoration: "none",
+  padding: "10px 14px",
+  borderRadius: "10px",
+  backgroundColor: isActive ? "#334155" : "transparent",
+  fontWeight: 600,
 });
 
 export default function Layout() {
@@ -14,35 +15,39 @@ export default function Layout() {
       <header
         style={{
           display: "flex",
-          gap: 8,
-          padding: 16,
-          borderBottom: "1px solid #1f2a44",
           alignItems: "center",
+          gap: "10px",
+          padding: "16px 20px",
+          borderBottom: "1px solid #1e293b",
+          flexWrap: "wrap",
         }}
       >
-        <strong style={{ marginRight: 12 }}>OfferRoute</strong>
-        <NavLink to="/" style={linkStyle} end>
+        <div style={{ fontSize: "1.8rem", fontWeight: 700, marginRight: "12px" }}>
+          OfferRoute
+        </div>
+
+        <NavLink to="/" end style={getLinkStyle}>
           Accueil
         </NavLink>
-        <NavLink to="/search" style={linkStyle}>
+
+        <NavLink to="/search" style={getLinkStyle}>
           Recherche
         </NavLink>
-        <NavLink to="/tracker" style={linkStyle}>
+
+        <NavLink to="/tracker" style={getLinkStyle}>
           Suivi
         </NavLink>
-        <NavLink to="/companies" style={linkStyle}>
+
+        <NavLink to="/companies" style={getLinkStyle}>
           Entreprises
         </NavLink>
-        <NavLink to="/stats" style={linkStyle}>
+
+        <NavLink to="/stats" style={getLinkStyle}>
           Stats
         </NavLink>
-
-        <div style={{ marginLeft: "auto", opacity: 0.8, fontSize: 12 }}>
-          Version MVP
-        </div>
       </header>
 
-      <main style={{ maxWidth: 1100, margin: "0 auto", padding: 16 }}>
+      <main style={{ maxWidth: "1100px", margin: "0 auto", padding: "24px" }}>
         <Outlet />
       </main>
     </div>

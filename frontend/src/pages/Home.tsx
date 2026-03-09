@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
-
 export default function Home() {
-  const [status, setStatus] = useState("Vérification...");
-
-  useEffect(() => {
-    fetch("/api/health")
-      .then((r) => (r.ok ? "API OK ✅" : "API KO ❌"))
-      .then(setStatus)
-      .catch(() => setStatus("API KO ❌"));
-  }, []);
-
   return (
-    <div style={{ padding: 24 }}>
+    <div>
       <h1>OfferRoute</h1>
-      <p>Statut backend : <strong>{status}</strong></p>
+      <p>
+        Application web de recherche d’offres, suggestions d’entreprises et suivi de candidatures.
+      </p>
       <p style={{ opacity: 0.85 }}>
-        Objectif : recherche automatique + suivi candidatures + relances.
+        Projet portfolio orienté Data / SQL / ETL / BI, compatible navigateur et mobile.
       </p>
     </div>
   );
