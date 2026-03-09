@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Data Engineer Senior",
+    "company": "MediData France",
+    "location": "Paris",
+    "contractType": "CDI",
+    "remoteType": "Hybride",
+    "publishedAt": "2025-03-01",
+    "description": "Conception et maintenance de pipelines ETL, optimisation SQL, industrialisation des flux de données."
+  },
+  {
+    "id": 2,
+    "title": "Développeur SQL / ETL",
+    "company": "Retail Analytics Group",
+    "location": "Lille",
+    "contractType": "CDI",
+    "remoteType": "Sur site",
+    "publishedAt": "2025-03-03",
+    "description": "Développement SQL, maintenance de traitements batch, optimisation de requêtes et reporting décisionnel."
+  },
+  {
+    "id": 3,
+    "title": "Data Analyst BI",
+    "company": "Health Insight",
+    "location": "Lyon",
+    "contractType": "CDD",
+    "remoteType": "Hybride",
+    "publishedAt": "2025-03-04",
+    "description": "Création de tableaux de bord, analyse métier, SQL, qualité des données et suivi d'indicateurs."
+  },
+  {
+    "id": 4,
+    "title": "Chef de projet Data",
+    "company": "AssurTech Pilot",
+    "location": "Nantes",
+    "contractType": "CDI",
+    "remoteType": "Télétravail",
+    "publishedAt": "2025-03-05",
+    "description": "Pilotage de projets data, coordination MOA/MOE, reporting et suivi d'avancement."
+  },
+  {
+    "id": 5,
+    "title": "Consultant Décisionnel SQL",
+    "company": "BI Conseil Ouest",
+    "location": "Angers",
+    "contractType": "Freelance",
+    "remoteType": "Hybride",
+    "publishedAt": "2025-03-06",
+    "description": "Modélisation de données, SQL, reporting, maintenance et amélioration de flux décisionnels."
+  },
+  {
+    "id": 6,
+    "title": "Ingénieur ETL Talend",
+    "company": "Data Services Europe",
+    "location": "Toulouse",
+    "contractType": "Intérim",
+    "remoteType": "Sur site",
+    "publishedAt": "2025-03-07",
+    "description": "Développement et supervision de flux Talend, contrôle qualité et traitement de données multi-sources."
+  }
+]
