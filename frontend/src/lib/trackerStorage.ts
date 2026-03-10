@@ -74,3 +74,49 @@ export function removeTrackedJob(jobId: number) {
   const updated = current.filter((item) => item.id !== jobId);
   saveTrackedJobs(updated);
 }
+
+export function clearTrackedJobs() {
+  localStorage.removeItem(STORAGE_KEY);
+}
+
+export function exportTrackedJobsToJson() {
+  const jobs = getTrackedJobs();
+  const blob = new Blob([JSON.stringify(jobs, null, 2)], {
+    type: "application/json",
+  });
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "offerroute-tracker.json";
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+export function importTrackedJobsFromJson(content: string): {
+  success: boolean;
+  message: string;
+} {
+  try {
+    const parsed = JSON.parse(content);
+
+    if (!Array.isArray(parsed)) {
+      return {
+        success: false,
+        message: "Le fichier importé n'a pas un format valide.",
+      };
+    }
+
+    saveTrackedJobs(parsed as TrackedJob[]);
+
+    return {
+      success: true,
+      message: "Suivi importé avec succès.",
+    };
+  } catch {
+    return {
+      success: false,
+      message: "Impossible de lire ce fichier JSON.",
+    };
+  }
+}
